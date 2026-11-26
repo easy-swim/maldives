@@ -741,6 +741,7 @@ body{padding-bottom:86px}
         </div>
         <div class="guide-head"><span style="font-size:11px;color:var(--faint)">진행률 <b id="gDone" style="color:var(--ink)">0</b> / 5</span><div class="progress"><i id="gBar"></i></div></div>
         <div id="guideList"></div>
+        <div id="ezAgencyGuide" style="margin-top:22px"></div>
       </section>
 
     </main>
@@ -1404,6 +1405,11 @@ body{padding-bottom:86px}
       '.ez-faq details{border-bottom:1px solid var(--line);padding:9px 0}.ez-faq summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:13px}.ez-faq details p{margin:6px 0 2px}' +
       '.ez-in{border:1px solid var(--line3);border-radius:var(--r6);padding:9px 11px;font:inherit;font-size:13px;width:130px;background:#fff;color:var(--ink)}' +
       '.ez-msg{font-size:12px;color:var(--muted);margin-left:8px}' +
+      '.ez-ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px;margin:10px 0 2px}' +
+      '.ez-ag a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 13px;border:1px solid #b8cfc3;border-radius:var(--r9);background:#fff;color:var(--ink2);font-size:12.5px;font-weight:600;letter-spacing:-.2px;line-height:1.35}' +
+      '.ez-ag a:hover,.ez-ag a:focus-visible{border-color:var(--green);background:var(--mint3);color:var(--green-d)}' +
+      '.ez-ag a i{font-style:normal;font-size:11px;color:#8aa79c;font-weight:400}' +
+      '.ez-ag-note{font-size:11.5px;color:var(--muted2);line-height:1.65;margin:8px 0 0!important}' +
       '@media(max-width:860px){#nav{overflow-x:auto;-webkit-overflow-scrolling:touch}#nav button{flex:none}}';
     document.head.appendChild(st);
 
@@ -1444,6 +1450,31 @@ body{padding-bottom:86px}
     }
     function link(label, id) { return '<button class="btn ghost" data-ezgo="' + id + '">' + label + '</button>'; }
 
+    /* ---------- 국내 몰디브 취급 여행사 공홈 (3분 진단 · 가이드 공용) ---------- */
+    var AG = [
+      ['투어민', 'https://www.tourmin.net/'],
+      ['여행산책', 'https://www.tourw.co.kr/'],
+      ['웹투어', 'https://webtour.com/GMall/maldi/index.asp'],
+      ['허니문리조트', 'https://honeymoonresort.co.kr/'],
+      ['와이페이모어', 'https://www.whypaymore.co.kr/'],
+      ['트레비아', 'https://www.trevia.co.kr/'],
+      ['투어아일랜드', 'https://tourisland.kr/'],
+      ['드림아일랜드', 'https://dreamisland.co.kr/'],
+      ['마이투어스토리', 'https://mytourstory.co.kr/'],
+      ['어썸트래블', 'https://awesometravel.co.kr/']
+    ];
+    function agBlock() {
+      return '<div class="ez-card">' +
+        '<h3>국내 몰디브 취급 여행사 공홈 모음 (10곳)</h3>' +
+        '<div class="ez-ag">' + AG.map(function (a) {
+          return '<a href="' + a[1] + '" target="_blank" rel="noopener noreferrer">' + a[0] + '<i aria-hidden="true">↗</i></a>';
+        }).join('') + '</div>' +
+        '<p class="ez-ag-note">※ 특정 업체 제휴·수수료 없이, 견적 비교 시 많이 참고하는 국내 몰디브 취급 여행사 공홈을 모아뒀습니다. (최소 2~3곳 비교 추천)</p>' +
+        '<p class="ez-ag-note">※ 와이페이모어는 몰디브 리조트 예약 페이지가 2026년 9월에 종료되어, 지금은 항공권 예약 사이트만 운영합니다.</p>' +
+        '<p style="margin:10px 0 0;color:var(--ink2);font-weight:600;font-size:12.5px">마음에 드시는 여행사 상담원한테 견적 딜해서 똑똑하게 여행 가요 :)</p>' +
+        '</div>';
+    }
+
     /* ---------- ① 3분 진단 ---------- */
     function q(n, title, hint, k, opts, multi) {
       return '<div class="q-card"><div class="q-top"><span class="q-num">' + n + '</span><h2>' + title + '</h2></div>' +
@@ -1468,6 +1499,7 @@ body{padding-bottom:86px}
       q('08', '분위기는?', '', 'a', [['y', '성인 전용·조용한 곳'], ['n', '상관없어요']]) +
       '<div class="ez-res" id="ezRes">하나라도 고르면 진단과 요청서가 나와요.</div>' +
       '<div class="btns"><button class="btn primary" id="ezFind">이 조건으로 리조트 찾기</button><button class="btn ghost" id="ezCopy">요청서 복사</button>' + link('패키지 안내 보기', 'pkg') + '<span class="ez-msg" id="ezMsg" role="status"></span></div>' +
+      '<div style="margin-top:16px">' + agBlock() + '</div>' +
       '<p class="ez-card" style="margin-top:14px;font-size:12px">진단 결과는 검토 출발점입니다. 최종 조건은 공식 홈페이지와 예약 담당자에게 확인하세요.</p>');
 
     var A = { g: [] }, GN = { p: '객실 개인 풀', a: '수상비행기', i: '올인클루시브', c: '가장 좋은 객실 등급' };
@@ -1669,6 +1701,9 @@ body{padding-bottom:86px}
 
     /* 화면 안의 이동 버튼 */
     $$('[data-ezgo]').forEach(function (b) { b.addEventListener('click', function () { showX(b.getAttribute('data-ezgo')); }); });
+    /* 가이드 탭에도 같은 여행사 링크 블록 */
+    var agGuide = $('#ezAgencyGuide');
+    if (agGuide) agGuide.innerHTML = agBlock();
     render();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
