@@ -799,12 +799,12 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
   /* ---------- season ---------- */
   var MONTHS = [
     ['1월','건기','dry','연말 성수기 끝자락. 가격은 아직 높은 편',''],
-    ['2월','건기·성수기','dry','건기 한가운데. 우리 실측에서 가장 비싼 달','feb'],
+    ['2월','건기·성수기','dry','건기 한가운데. 우리가 조회한 두 달 중 가장 비싼 달','feb'],
     ['3월','건기','dry','건조하고 바다가 잔잔한 편',''],
     ['4월','건기 끝','dry','덥고 습해지기 시작하는 환절기',''],
     ['5월','우기 시작','wet','스콜이 시작되고 숙소 가격이 내려가요',''],
     ['6월','우기','wet','비가 잦고 가격은 낮은 구간',''],
-    ['7월','우기','wet','우기 중간. 우리 실측에서 가장 싼 달','jul'],
+    ['7월','우기','wet','우기 중간. 우리가 조회한 두 달 중 가장 싼 달','jul'],
     ['8월','우기','wet','비가 잦고 방학 시즌이라 항공이 비싸요',''],
     ['9월','우기','wet','비 많은 달. 숙소 할인이 큰 편',''],
     ['10월','우기 끝자락','wet','비가 줄어드는 환절기',''],
@@ -821,7 +821,7 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     var f = priceSpan('feb'), j = priceSpan('jul');
     $('#seasons').innerHTML = MONTHS.map(function(m){
       var hit = !!m[4];
-      var price = m[4]==='feb' && f ? '4박 '+money(f.lo)+'~' : (m[4]==='jul' && j ? '4박 '+money(j.lo)+'~' : '실측 없음');
+      var price = m[4]==='feb' && f ? '최저 '+money(f.lo)+'~' : (m[4]==='jul' && j ? '최저 '+money(j.lo)+'~' : '실측 없음');
       var w = m[2]==='dry' ? 62 : 40;
       return '<div class="mo '+m[2]+(hit?' hit':'')+'">'+
         (hit?'<span class="tagm">실측</span>':'')+
@@ -921,7 +921,8 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
       if (sort==='name') return a.ko.localeCompare(b.ko,'ko');
       if (sort==='rank'){ var ra=a.rank||999, rb=b.rank||999; return ra-rb || a.ko.localeCompare(b.ko,'ko'); }
       var ka = sort==='feb'?'feb':(sort==='jul'?'jul':'from');
-      var va = a[ka] ? a[ka][0] : null, vb = b[ka] ? b[ka][0] : null;
+      var va = ka==='from' ? a.from : (a[ka] ? a[ka][0] : null);
+      var vb = ka==='from' ? b.from : (b[ka] ? b[ka][0] : null);
       if (va==null && vb==null) return a.ko.localeCompare(b.ko,'ko');
       if (va==null) return 1;
       if (vb==null) return -1;
