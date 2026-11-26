@@ -1059,7 +1059,7 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
       ['전용 풀', function(x){ return x.pool==='all'?'전 객실 풀빌라':(x.pool==='some'?'일부 전용 풀':(x.pool==='none'?'없음':'—')); }],
       ['이동', function(x){ return esc(x.transfer); }],
       ['대물투어', function(x){ return esc(x.big||'—'); }],
-      ['단점', function(x){ return esc((x.cons||[]).slice(0,2).join(' · ')||'—'); }],
+      ['단점', function(x){ return esc(x.bad || (x.cons||[]).slice(0,2).join(' · ') || '—'); }],
       ['공홈', function(x){ return x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer nofollow">열기 ↗</a>':'—'; }]
     ];
     var body = '<h2>'+rows.length+'곳 나란히 비교<small>같은 조건(2인 1실 4박, 항공 제외)으로 놓았습니다</small></h2>'+
@@ -1207,7 +1207,10 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     }
   });
 
-  $('#trayGo').addEventListener('click', function(){ if (state.sel.length) openCompare(); });
+  $('#trayGo').addEventListener('click', function(){
+    if (state.sel.length < 2){ toast('비교표는 2곳 이상 담아야 열려요'); return; }
+    openCompare();
+  });
   $('#q').addEventListener('input', function(e){ state.q = e.target.value; renderList(); });
   $('#sort').addEventListener('change', function(e){ state.sort = e.target.value; renderList(); });
   $('#budgetMax').addEventListener('change', function(e){ state.max = e.target.value; renderList(); });
