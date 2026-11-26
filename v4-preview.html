@@ -214,7 +214,7 @@ section.sec{padding:54px 0 10px}
 .truth .k{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--green-d);text-transform:uppercase}
 .truth h3{font-size:18px;letter-spacing:-.6px}
 .truth .big{font-size:30px;font-weight:800;letter-spacing:-1.6px;color:var(--ink);line-height:1.1}
-.truth .big small{font-size:13px;font-weight:700;color:var(--muted2);letter-spacing:-.2px;margin-left:3px}
+.truth .big small{display:block;font-size:12px;font-weight:700;color:var(--muted2);letter-spacing:-.2px;margin-top:5px}
 .truth p{font-size:12px;color:var(--muted);line-height:1.75}
 .truth .calc{background:var(--mint3);border-radius:10px;padding:10px 12px;font-size:11.5px;color:#3f6159;line-height:1.65;font-weight:600}
 .truth .src{font-size:10px;color:#96a8a2}
@@ -277,6 +277,9 @@ section.sec{padding:54px 0 10px}
 .sheet table.px{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .sheet table.px th,.sheet table.px td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 .sheet table.px th{font-size:10.5px;color:var(--muted2);font-weight:700;background:var(--mint3)}
+.sheet table.px th.rowh{width:31%;white-space:nowrap}
+.sheet .hero-img.noimg{aspect-ratio:auto;height:92px}
+.sheet .hero-img.noimg .rc-ph b{font-size:12px;opacity:.6}
 .sheet table.px td b{font-size:14px;font-weight:800;letter-spacing:-.4px}
 .sheet table.px tr:last-child td{border-bottom:0}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
@@ -460,14 +463,14 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
       <div class="truth">
         <span class="k">우기라고 다 나쁘지 않아요</span>
         <h3>7월이 실속인 이유</h3>
-        <div class="big">비<small>를 감수하면 등급이 올라갑니다</small></div>
+        <div class="big">한 단계 위<small>같은 예산이면 등급이 올라갑니다</small></div>
         <p>7월에는 같은 예산으로 한 단계 위 리조트, 또는 비치빌라 대신 워터빌라를 잡을 수 있는 경우가 많아요. 대신 스콜·습도·모기, 그리고 일부 리조트의 식당 휴업은 감안해야 합니다.</p>
         <div class="calc">단, 7월은 <b>조회된 객실이 적은 달</b>이에요. 7월 요금이 비어 있는 리조트는 2월만 실측했습니다.</div>
       </div>
       <div class="truth">
         <span class="k">항공까지 넣으면</span>
         <h3>시즌은 항공권이 결정하기도</h3>
-        <div class="big">2+2<small>숙소와 항공의 성수기가 다릅니다</small></div>
+        <div class="big">따로 보기<small>숙소와 항공의 성수기는 다릅니다</small></div>
         <p>숙소는 2월이 비싸지만, 항공은 설 연휴·연말에 더 뛰어요. 반대로 7월은 숙소가 싸도 방학 시즌 항공이 비쌉니다. 두 값을 따로 보고 합쳐야 총액이 보여요.</p>
         <div class="calc">이 사이트 금액은 <b>항공 미포함</b>입니다. 항공은 별도로 조회하세요.</div>
       </div>
@@ -822,12 +825,10 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     $('#seasons').innerHTML = MONTHS.map(function(m){
       var hit = !!m[4];
       var price = m[4]==='feb' && f ? '최저 '+money(f.lo)+'~' : (m[4]==='jul' && j ? '최저 '+money(j.lo)+'~' : '실측 없음');
-      var w = m[2]==='dry' ? 62 : 40;
       return '<div class="mo '+m[2]+(hit?' hit':'')+'">'+
         (hit?'<span class="tagm">실측</span>':'')+
         '<div class="m">'+m[0]+'</div>'+
         '<div class="s">'+m[1]+'</div>'+
-        '<div class="bar"><i style="width:'+w+'%"></i></div>'+
         '<div class="price">'+price+'</div>'+
         '<div class="c">'+m[3]+'</div></div>';
     }).join('');
@@ -984,6 +985,7 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     var x = byId(id); if(!x) return;
     sheetMode = 'detail';
     $('#shImg').style.display = '';
+    $('#shImg').className = 'hero-img' + (x.img ? '' : ' noimg');
     $('#shImg').innerHTML = x.img
       ? '<img src="'+x.img+'" alt="'+esc(x.ko)+' 전경 (리조트 공식 홈페이지)">'
       : photo(x);
@@ -997,13 +999,20 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     if (x.adult) badges.push('<span class="badge na">'+esc(x.adult)+'</span>');
     if (x.monthNote && x.monthNote.length) badges.push('<span class="badge warn">'+esc(x.monthNote.join(' · '))+'</span>');
 
-    var priceRows = '<tr><th>2월 성수기</th><td>'+(x.feb?'<b>'+rng(x.feb)+'</b>':'<b style="font-weight:600;color:#8b9c96">'+(x.reason?'요금 미확보':'조회 안 됨')+'</b>')+'<br><span class="small">4박 · 2인 1실 · 항공 제외</span></td></tr>'+
-      '<tr><th>7월 우기</th><td>'+(x.jul?'<b>'+rng(x.jul)+'</b>':'<b style="font-weight:600;color:#8b9c96">'+(x.reason?'요금 미확보':'조회 안 됨')+'</b>')+'<br><span class="small">4박 · 2인 1실 · 항공 제외</span></td></tr>'+
-      '<tr><th>세금</th><td>'+esc(TAX_LABEL[x.tax])+(x.greenIncluded?' · 그린택스 포함 표기':'')+'</td></tr>';
+    var priceRows = '<tr><th class="rowh">2월 성수기</th><td>'+(x.feb?'<b>'+rng(x.feb)+'</b>':'<b style="font-weight:600;color:#8b9c96">'+(x.reason?'요금 미확보':'조회 안 됨')+'</b>')+'<br><span class="small">4박 · 2인 1실 · 항공 제외</span></td></tr>'+
+      '<tr><th class="rowh">7월 우기</th><td>'+(x.jul?'<b>'+rng(x.jul)+'</b>':'<b style="font-weight:600;color:#8b9c96">'+(x.reason?'요금 미확보':'조회 안 됨')+'</b>')+'<br><span class="small">4박 · 2인 1실 · 항공 제외</span></td></tr>'+
+      '<tr><th class="rowh">세금</th><td>'+esc(TAX_LABEL[x.tax])+(x.greenIncluded?' · 그린택스 포함 표기':'')+'</td></tr>';
     var reason = x.reason ? '<p class="note">'+esc(x.reason)+'</p>' : '';
 
-    var pros = (x.pros&&x.pros.length ? x.pros : ['—']).map(function(p){ return '<li class="pro"><span class="m">✔</span>'+esc(p)+'</li>'; }).join('');
-    var cons = (x.cons&&x.cons.length ? x.cons : ['—']).map(function(p){ return '<li class="con"><span class="m">!</span>'+esc(p)+'</li>'; }).join('');
+    function splitKw(v){ return String(v||'').split('·').map(function(t){ return t.trim(); }).filter(Boolean); }
+    var goodList = splitKw(x.good);
+    var badList = splitKw(x.bad);
+    if (!goodList.length) goodList = (x.pros||['—']).slice(0,4);
+    if (!badList.length) badList = (x.cons||['—']).slice(0,4);
+    var extra = (x.cons||[]).filter(function(c){ return !/세금|봉사료|재고|표기/.test(c); });
+    var pros = goodList.slice(0,6).map(function(p){ return '<li class="pro"><span class="m">✔</span>'+esc(p)+'</li>'; }).join('');
+    var cons = badList.slice(0,6).map(function(p){ return '<li class="con"><span class="m">!</span>'+esc(p)+'</li>'; }).join('') +
+      extra.slice(0,2).map(function(p){ return '<li class="con"><span class="m">·</span>'+esc(p)+'</li>'; }).join('');
 
     var inSel = state.sel.indexOf(x.id)>=0;
     $('#shBody').innerHTML =
@@ -1033,7 +1042,7 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     sheetMode = 'compare';
     $('#shImg').innerHTML = '';
     $('#shImg').style.display = 'none';
-    var head = '<tr><th></th>'+rows.map(function(x){ return '<th>'+esc(x.ko)+'<div class="small" style="font-weight:500">'+esc(x.type)+' · '+esc(x.atoll)+'</div></th>'; }).join('')+'</tr>';
+    var head = '<tr><th class="rowh"></th>'+rows.map(function(x){ return '<th>'+esc(x.ko)+'<div class="small" style="font-weight:500">'+esc(x.type)+' · '+esc(x.atoll)+'</div></th>'; }).join('')+'</tr>';
     var defs = [
       ['2월 4박', function(x){ return x.feb?'<b>'+rng(x.feb)+'</b>':'—'; }],
       ['7월 4박', function(x){ return x.jul?'<b>'+rng(x.jul)+'</b>':'—'; }],
