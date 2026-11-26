@@ -568,7 +568,7 @@ body{padding-bottom:86px}
           </div>
           <div class="btns" style="display:flex;gap:7px;flex-wrap:wrap">
             <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfBbRKPUfFeXjRlNFHVqY-H5gHcgKblJUALwyOMBn5VUtnkIw/viewform" target="_blank" rel="noopener">패키지 신청 (구글폼) ↗</a>
-            <a class="btn ghost" href="https://open.kakao.com/o/gcKNOXXi" target="_blank" rel="noopener">오픈채팅 문의 ↗</a>
+            <a class="btn ghost" href="https://app.notion.com/p/1-1-424ad1a95078812b999cc5a134099124" target="_blank" rel="noopener">1:1 맞춤 상담 받기 ↗</a>
           </div>
         </div>
 
@@ -646,7 +646,7 @@ body{padding-bottom:86px}
               <p>리조트별 비치·워터 1박 금액, 세금 포함 환산표, 7월 할인율은 59,000원 패키지에 담겨 있어요.</p></div>
             <div class="btns">
               <a class="btn form" href="https://docs.google.com/forms/d/e/1FAIpQLSfBbRKPUfFeXjRlNFHVqY-H5gHcgKblJUALwyOMBn5VUtnkIw/viewform" target="_blank" rel="noopener">패키지 신청 ↗</a>
-              <a class="btn chat" href="https://open.kakao.com/o/gcKNOXXi" target="_blank" rel="noopener">오픈채팅 ↗</a>
+              <a class="btn chat" href="https://app.notion.com/p/1-1-424ad1a95078812b999cc5a134099124" target="_blank" rel="noopener">1:1 맞춤 상담 ↗</a>
             </div>
           </div>
         </section>
@@ -779,7 +779,7 @@ body{padding-bottom:86px}
   "use strict";
   var DATA = JSON.parse(document.getElementById('data').textContent);
   var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfBbRKPUfFeXjRlNFHVqY-H5gHcgKblJUALwyOMBn5VUtnkIw/viewform";
-  var OPENCHAT = "https://open.kakao.com/o/gcKNOXXi";
+  var NOTION = "https://app.notion.com/p/1-1-424ad1a95078812b999cc5a134099124";
 
   var TIER = ["$500대", "$600~800대", "$900~1,200대", "$1,300~1,900대", "$2,000~2,900대", "$3,000+"];
   var TYPE_ORDER = ['라군형','반반형','수중형'];
@@ -942,7 +942,7 @@ body{padding-bottom:86px}
       priceHtml = '<div class="pbox">'+
         '<span class="plbl">1박 예산대 · 세금 포함 추정</span>'+
         '<div class="pgrid">'+tierCell(r,'tFeb')+tierCell(r,'tJul')+'</div>'+
-        '<a class="pcta" href="'+FORM+'" target="_blank" rel="noopener">정확한 공홈 실측가 보기 ↗'+
+        '<a class="pcta" href="'+NOTION+'" target="_blank" rel="noopener">찜한 리조트 정확한 요금 · 1:1 맞춤 받기 ↗'+
           '<span>세금 포함 총액·7월 할인율은 59,000원 패키지</span></a>'+
         '</div>';
     } else {
@@ -950,7 +950,7 @@ body{padding-bottom:86px}
         '<span class="plbl">1박 예산대</span>'+
         '<div class="pnow"><b style="font-size:15px;letter-spacing:-.3px">'+esc(reasonOf(r).label)+'</b></div>'+
         '<div class="pest">'+esc(reasonOf(r).msg)+'</div>'+
-        '<a class="pcta" href="'+OPENCHAT+'" target="_blank" rel="noopener">상담에서 예산대 확인 ↗</a></div>';
+        '<a class="pcta" href="'+NOTION+'" target="_blank" rel="noopener">1:1 맞춤 상담에서 예산대 확인 ↗</a></div>';
     }
 
     var actsHtml = '<div class="acts">'+
@@ -1087,7 +1087,7 @@ body{padding-bottom:86px}
 
   function pkgHtml(){
     return '<div class="pkg"><b>59,000원 올인원 패키지</b> — 리조트별 정확한 2·7월 공홈 실측가, 세금 포함 총액 계산표, 7월 할인율 + 1:1 컨설팅(후보 3곳·대안 1곳, 공홈·OTA 총액 비교, 여행사에 보낼 질문 1장). '+
-      '<a href="'+FORM+'" target="_blank" rel="noopener">구글폼 신청 →</a> · <a href="'+OPENCHAT+'" target="_blank" rel="noopener">오픈채팅 문의 →</a></div>';
+      '<a href="'+FORM+'" target="_blank" rel="noopener">구글폼 신청 →</a> · <a href="'+NOTION+'" target="_blank" rel="noopener">1:1 맞춤 상담 →</a></div>';
   }
 
   function openSheet(){
@@ -1121,7 +1121,7 @@ body{padding-bottom:86px}
     $('#shTitle').textContent = '비교함 · '+rows.length+'곳';
     $('#shBody').innerHTML = body;
     $('#shFoot').innerHTML =
-      '<a class="cta" href="'+FORM+'" target="_blank" rel="noopener">선택한 '+rows.length+'곳으로 1:1 견적 상담 신청 →</a>'+
+      '<a class="cta" href="'+NOTION+'" target="_blank" rel="noopener">선택한 '+rows.length+'곳으로 1:1 맞춤 상담 신청 →</a>'+
       '<button class="ghost" id="copyBtn">선택 요약 복사</button>'+
       '<button class="ghost" id="pkgBtn">59,000원 패키지</button>';
     $('#sheet').hidden = false;
@@ -1220,7 +1220,7 @@ body{padding-bottom:86px}
         '<div class="rprice">'+esc(band(r,slot)||'확인 전')+'<small>1박 예산대</small></div>'+
         '<button class="chip" data-cmp="'+r.id+'">'+ (state.sel.indexOf(r.id)>=0?'✓ 담김':'+ 담기') +'</button></div>';
     }).join('')+
-    '<p class="rs" style="margin:12px 0 0">조건에 맞는 곳은 모두 '+res.total+'곳이에요. 후보 3곳은 예산대가 낮은 순으로 골랐습니다. 정확한 금액은 <a href="'+FORM+'" target="_blank" rel="noopener">59,000원 패키지</a>에서 확인하세요.</p>';
+    '<p class="rs" style="margin:12px 0 0">조건에 맞는 곳은 모두 '+res.total+'곳이에요. 후보 3곳은 예산대가 낮은 순으로 골랐습니다. 정확한 금액은 <a href="'+NOTION+'" target="_blank" rel="noopener">59,000원 패키지 상세</a>에서 확인하세요.</p>';
     var addAll = $('#pickAddAll');
     if (addAll) addAll.onclick = function(){
       res.list.forEach(function(r){ if (state.sel.indexOf(r.id)<0 && state.sel.length<3) state.sel.push(r.id); });
