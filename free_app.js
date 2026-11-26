@@ -309,7 +309,7 @@
   }
 
   function pkgHtml(){
-    return '<div class="pkg"><b>59,000원 올인원 패키지</b> — 리조트별 정확한 2·7월 공홈 실측가, 세금 포함 총액 계산표, 7월 할인율 + 1:1 컨설팅(후보 3곳·대안 1곳, 공홈·OTA 총액 비교, 여행사에 보낼 질문 1장). '+
+    return '<div class="pkg"><b>59,000원 올인원 패키지</b> — 98곳 DB에서 고른 찜 3곳 + 맞춤 5곳(총 8곳)의 2·7월 기준가·희망 날짜 실측가, 세금 포함 총액 + 1:1 컨설팅(공홈·OTA 총액 비교, 여행사에 보낼 질문 1장). '+
       '<a href="'+FORM+'" target="_blank" rel="noopener">구글폼 신청 →</a> · <a href="'+NOTION+'" target="_blank" rel="noopener">1:1 맞춤 상담 →</a></div>';
   }
 
@@ -338,7 +338,7 @@
       defs.map(function(d){
         return '<tr><th class="rowh">'+d[0]+'</th>'+rows.map(function(r){ return '<td>'+d[1](r)+'</td>'; }).join('')+'</tr>';
       }).join('')+'</tbody></table></div>'+
-      '<p class="cmp-note">예산대는 2027-02-21~25 · 07-18~22 각 4박, 성인 2인 1실 기준 공홈 조회값을 세금 포함 1박 구간으로 바꾼 것입니다. 리조트별 정확한 금액·세금 포함 총액·7월 할인율은 59,000원 패키지에서 확인하세요.</p>'+
+      '<p class="cmp-note">예산대는 2027-02-21~25 · 07-18~22 각 4박, 성인 2인 1실 기준 공홈 조회값을 세금 포함 1박 구간으로 바꾼 것입니다. 찜한 3곳 + 맞춤 5곳(총 8곳)의 정확한 금액·세금 포함 총액은 59,000원 패키지에서 확인하세요.</p>'+
       '<div id="pkgBox" hidden>'+pkgHtml()+'</div>';
 
     $('#shTitle').textContent = '비교함 · '+rows.length+'곳';
