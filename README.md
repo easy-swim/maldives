@@ -19,6 +19,9 @@
 | `build_v3.py` | `template_v3.html` + `data.json` → `index.html` |
 | `index.html` | 배포본(외부 라이브러리 없이 동작하는 단일 파일, 데이터 내장) |
 | `make_template_v3.py` | 클로드 아티팩트 원본(`design-ref/claude/artifact_original.html`)에서 템플릿을 만든 기록(문구 수정 포함) |
+| `make_og_cover.py` | 카톡·스레드·DM 공유 미리보기 카드 이미지 → `assets/og-cover.png` (1200×630) |
+
+공유 카드 문구는 `template_v3.html` `<head>`의 `og:*`·`twitter:*` 태그에서 고칩니다. 커버 그림을 바꿀 때는 `python3 make_og_cover.py`로 `assets/og-cover.png`를 다시 만들고, `template_v3.html`의 `og:image` 주소는 `https://easy-swim.github.io/maldives/assets/og-cover.png` 그대로 둡니다(절대 주소여야 카톡이 그림을 읽습니다).
 
 문구를 고칠 때는 `template_v3.html`을 고치고 `python3 build_v3.py`로 `index.html`을 다시 만든 뒤 push 합니다.
 (v2 시절 `build_v2.py`·`free_app.js`는 이력 보관용이며 v3 배포에는 쓰이지 않습니다.)
