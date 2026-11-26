@@ -974,7 +974,15 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     if (i>=0) state.sel.splice(i,1);
     else if (state.sel.length>=3){ toast('비교는 최대 3곳까지 담을 수 있어요'); return; }
     else state.sel.push(id);
-    saveSel(); renderList(); renderRails();
+    saveSel();
+    var on = state.sel.indexOf(id)>=0;
+    $$('[data-cmp="'+id+'"]').forEach(function(b){
+      if (b.closest('.sh-acts')) b.textContent = on ? '✓ 비교함에 담김' : '+ 비교함 담기';
+      else b.textContent = on ? '✓ 담김' : '+ 비교';
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    renderTray();
     if (!$('#sheet').hidden && sheetMode==='compare') openCompare();
   }
 
@@ -1178,15 +1186,7 @@ footer .in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fo
     var op = e.target.closest('[data-open]');
     if (op){ openDetail(parseInt(op.getAttribute('data-open'),10)); return; }
     var cp = e.target.closest('[data-cmp]');
-    if (cp){
-      toggle(parseInt(cp.getAttribute('data-cmp'),10));
-      var id = parseInt(cp.getAttribute('data-cmp'),10);
-      var on = state.sel.indexOf(id)>=0;
-      cp.classList.toggle('on', on);
-      if (cp.closest('.sh-acts')) cp.textContent = on ? '✓ 비교함에 담김' : '+ 비교함 담기';
-      else cp.textContent = on ? '✓ 담김' : '+ 비교';
-      return;
-    }
+    if (cp){ toggle(parseInt(cp.getAttribute('data-cmp'),10)); return; }
     var rm = e.target.closest('[data-rm]');
     if (rm){ toggle(parseInt(rm.getAttribute('data-rm'),10)); return; }
     if (e.target.closest('[data-close]')){ closeSheet(); return; }
