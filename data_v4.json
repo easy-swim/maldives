@@ -3,7 +3,7 @@
   "total": 98,
   "priced": 87,
   "bothMonths": 82,
-  "withPhoto": 49,
+  "withPhoto": 98,
   "sections": {
    "value": 33,
    "main": 43,
@@ -68,7 +68,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.anantara.com/en/dhigu-maldives",
-   "img": null,
+   "img": "assets/resorts/web/50-anantara-dhigu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -121,7 +121,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.anantara.com/en/veli-maldives",
-   "img": null,
+   "img": "assets/resorts/web/51-anantara-veli.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -174,7 +174,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.naladhu.com/en/",
-   "img": null,
+   "img": "assets/resorts/web/52-naladhu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -440,7 +440,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.marriott.com/en-us/hotels/mlewh-w-maldives/overview/",
-   "img": null,
+   "img": "assets/resorts/web/53-w-maldives.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -545,7 +545,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://kagimaldives.com/",
-   "img": null,
+   "img": "assets/resorts/web/54-kagi.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -1291,7 +1291,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.tajhotels.com/en-in/hotels/taj-exotica-maldives",
-   "img": null,
+   "img": "assets/resorts/web/55-taj-exotica.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -1345,7 +1345,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://so-hotels.com/en/maldives/",
-   "img": null,
+   "img": "assets/resorts/web/56-so-maldives.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -1400,7 +1400,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.nivavelassaru.com/",
-   "img": null,
+   "img": "assets/resorts/web/57-velassaru.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -1556,7 +1556,7 @@
    "reasonCode": "blocked",
    "reason": "공홈이 자동 조회를 막아 요금을 못 봤어요",
    "url": "https://www.comohotels.com/maldives/como-maalifushi",
-   "img": null,
+   "img": "assets/resorts/web/58-como-maalifushi.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -1814,7 +1814,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://rahgili.com/",
-   "img": null,
+   "img": "assets/resorts/web/59-rah-gili.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -1973,7 +1973,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.meyyafushi.com/",
-   "img": null,
+   "img": "assets/resorts/web/60-meyyafushi.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -2027,7 +2027,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://oagaresorts.com/",
-   "img": null,
+   "img": "assets/resorts/web/61-oaga-art.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -2135,7 +2135,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.sunsiyam.com/siyam-world/",
-   "img": null,
+   "img": "assets/resorts/web/62-siyam-world.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -2189,7 +2189,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://kuredhivaruresortandspa.com/",
-   "img": null,
+   "img": "assets/resorts/web/63-kuredhivaru.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -2925,7 +2925,7 @@
    "reasonCode": "blocked",
    "reason": "공홈이 자동 조회를 막아 요금을 못 봤어요",
    "url": "https://www.cinnamonhotels.com/cinnamon-velifushi-maldives",
-   "img": null,
+   "img": "assets/resorts/web/64-cinnamon-velifushi.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -3020,7 +3020,7 @@
    "reasonCode": "closed",
    "reason": "휴장·개보수 또는 2027년 예약 미오픈",
    "url": "https://www.melia.com/en/hotels/maldives/south-ari-atoll/hotel-whale-lagoon-maldives-5726",
-   "img": null,
+   "img": "assets/resorts/web/65-melia-whale-lagoon.jpg",
    "rank": null,
    "hasWater": false,
    "sec": [
@@ -3075,7 +3075,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://jawakara.com/",
-   "img": null,
+   "img": "assets/resorts/web/66-jawakara.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3125,7 +3125,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.constancehotels.com/en/hotels-resorts/halaveli/",
-   "img": null,
+   "img": "assets/resorts/web/67-halaveli.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3448,7 +3448,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.joyisland.com/",
-   "img": null,
+   "img": "assets/resorts/web/68-joy-island.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3501,7 +3501,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.driftretreat.com/",
-   "img": null,
+   "img": "assets/resorts/web/69-drift.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3550,7 +3550,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://dreamland.com.mv/",
-   "img": null,
+   "img": "assets/resorts/web/70-dreamland.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3603,7 +3603,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.marriott.com/en-us/hotels/mlewi-the-westin-maldives-miriandhoo-resort/overview/",
-   "img": null,
+   "img": "assets/resorts/web/71-westin-miriandhoo.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3656,7 +3656,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.pullmanmaldivesmaamutaa.com/",
-   "img": null,
+   "img": "assets/resorts/web/72-pullman-maamutaa.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3758,7 +3758,7 @@
    "reasonCode": "soldout",
    "reason": "조회 기간(2027-02-21~25·07-18~22)에 판매 객실 없음",
    "url": "https://www.madifushiprivateisland.com/",
-   "img": null,
+   "img": "assets/resorts/web/73-madifushi.jpg",
    "rank": null,
    "hasWater": false,
    "sec": [
@@ -3811,7 +3811,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.kudadoo.com/",
-   "img": null,
+   "img": "assets/resorts/web/74-kudadoo.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3862,7 +3862,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.saiihotels.com/lagoon-maldives/",
-   "img": null,
+   "img": "assets/resorts/web/75-saii-lagoon.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -3910,7 +3910,7 @@
    "reasonCode": "blocked",
    "reason": "공홈이 자동 조회를 막아 요금을 못 봤어요",
    "url": "https://www.comohotels.com/maldives/como-cocoa-island",
-   "img": null,
+   "img": "assets/resorts/web/76-como-cocoa.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -3960,7 +3960,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://mercuremaldiveskooddooresort.com/",
-   "img": null,
+   "img": "assets/resorts/web/77-mercure-kooddoo.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4012,7 +4012,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.youandmemaldives.com/",
-   "img": null,
+   "img": "assets/resorts/web/78-you-and-me.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4064,7 +4064,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.adaaran.com/prestigevadoo/",
-   "img": null,
+   "img": "assets/resorts/web/79-adaaran-vadoo.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4110,7 +4110,7 @@
    "reasonCode": "no-engine",
    "reason": "공홈에 온라인 예약엔진이 없어요",
    "url": "https://www.thulhagiri.com.mv/",
-   "img": null,
+   "img": "assets/resorts/web/80-thulhagiri.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -4162,7 +4162,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.finolhu.com/",
-   "img": null,
+   "img": "assets/resorts/web/81-finolhu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4214,7 +4214,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://dhigufaru.com/",
-   "img": null,
+   "img": "assets/resorts/web/82-dhigufaru.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4266,7 +4266,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.baros.com/",
-   "img": null,
+   "img": "assets/resorts/web/83-baros.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4321,7 +4321,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.kandolhu.com/",
-   "img": null,
+   "img": "assets/resorts/web/84-kandolhu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4367,7 +4367,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://cocogiri.com/",
-   "img": null,
+   "img": "assets/resorts/web/85-cocogiri.jpg",
    "rank": null,
    "hasWater": false,
    "sec": [
@@ -4419,7 +4419,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.robinson.com/en/en/resort-holiday/maldives/noonu/club-details/",
-   "img": null,
+   "img": "assets/resorts/web/86-robinson-noonu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4462,7 +4462,7 @@
    "reasonCode": "no-engine",
    "reason": "공홈에 온라인 예약엔진이 없어요",
    "url": "https://www.safariisland.com.mv/",
-   "img": null,
+   "img": "assets/resorts/web/87-safari-island.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -4512,7 +4512,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://coloursofoblu.com/oblu-select-lobigili/en",
-   "img": null,
+   "img": "assets/resorts/web/88-lobigili.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4563,7 +4563,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.centarahotelsresorts.com/centara/crf/",
-   "img": null,
+   "img": "assets/resorts/web/89-centara-ras-fushi.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4615,7 +4615,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-maldives/",
-   "img": null,
+   "img": "assets/resorts/web/90-radisson-blu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4660,7 +4660,7 @@
    "reasonCode": "no-engine",
    "reason": "공홈에 온라인 예약엔진이 없어요",
    "url": "https://angaga.com.mv/",
-   "img": null,
+   "img": "assets/resorts/web/91-angaga.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -4709,7 +4709,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://coloursofoblu.com/oblu-xperience-ailafushi/en",
-   "img": null,
+   "img": "assets/resorts/web/92-ailafushi.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4761,7 +4761,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.vvillasmaldivesatmirihi.com/",
-   "img": null,
+   "img": "assets/resorts/web/93-mirihi.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4817,7 +4817,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.robinson.com/en/en/resort-holiday/maldives/",
-   "img": null,
+   "img": "assets/resorts/web/94-robinson-maldives.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4868,7 +4868,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.riu.com/en/hotel/maldives/dhaalu-atoll/hotel-riu-atoll",
-   "img": null,
+   "img": "assets/resorts/web/95-riu-atoll.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4921,7 +4921,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://amilla.com/",
-   "img": null,
+   "img": "assets/resorts/web/96-amilla.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
@@ -4966,7 +4966,7 @@
    "reasonCode": "closed",
    "reason": "휴장·개보수 또는 2027년 예약 미오픈",
    "url": "https://www.komandoo.com/",
-   "img": null,
+   "img": "assets/resorts/web/97-komandoo.jpg",
    "rank": null,
    "hasWater": false,
    "sec": []
@@ -5121,7 +5121,7 @@
    "reasonCode": null,
    "reason": null,
    "url": "https://www.parkhotelgroup.com/grand-park-kodhipparu-maldives",
-   "img": null,
+   "img": "assets/resorts/web/98-grand-park-kodhipparu.jpg",
    "rank": null,
    "hasWater": true,
    "sec": [
