@@ -6,7 +6,9 @@
   - data.json               : 공개용 태그·성향·식사·풀·어른전용 표기, 2월/7월 대체 기준월 메모
   - ../maldives-98-one-liners.json : 98곳 리뷰 한줄평(good/bad/line) + 구글맵 평점
   - ../blog/resorts-image-map.md   : 1~49위 공홈 전경 사진 파일명(assets/resorts/)
-  - assets/resorts/         : 실제 이미지 파일 존재 여부 확인
+  - extra_images_1.json     : 50~74위(25곳) 공홈 전경 사진 파일명
+  - extra_images_2.json     : 75~98위(24곳) 공홈 전경 사진 파일명
+  - assets/resorts/web/     : 실제 이미지 파일 존재 여부 확인(98곳 전부)
 
 금액은 '4박 실측 범위(최저~최고)'만 담는다. 객실 타입별 정확한 금액과 세금 포함 총액은
 이 파일에 넣지 않는다(59,000원 패키지 범위).
@@ -22,6 +24,8 @@ WORK = BASE.parent
 IMG_DIR = BASE / "assets" / "resorts"
 
 # 1~49위(콘텐츠 발행 순위) → data id. 근거: work/blog/resorts-image-map.md 표의 순위·이름
+EXTRA_FILES = ("extra_images_1.json", "extra_images_2.json")
+
 RANK_ID = {
     1: ("벨리간두", 12, "01-veligandu.jpg"),
     2: ("NH 하보다", 14, "02-havodda.jpg"),
@@ -99,6 +103,24 @@ def main() -> None:
             raise SystemExit(f"[FAIL] 사진 없음: {path}")
         img_by_id[rid] = f"assets/resorts/web/{fname}"
         rank_by_id[rid] = (rank, label)
+
+    # 50~98위 사진(extra_images_*.json) — id별로 web/{파일명} 매핑
+    extra = {}
+    for fn in EXTRA_FILES:
+        p = BASE / fn
+        if not p.exists():
+            raise SystemExit(f"[FAIL] 사진 매핑 파일 없음: {p}")
+        rows = json.loads(p.read_text(encoding="utf-8"))
+        extra.update({int(k): v for k, v in rows.items()})
+    for rid, fname in sorted(extra.items()):
+        path = IMG_DIR / fname
+        if not path.exists():
+            raise SystemExit(f"[FAIL] 사진 없음(id {rid}): {path}")
+        img_by_id.setdefault(rid, f"assets/resorts/web/{fname}")
+
+    no_img = [r["id"] for r in full if r["id"] not in img_by_id]
+    if no_img:
+        raise SystemExit(f"[FAIL] 사진 없는 리조트 id: {no_img}")
 
     out = []
     for r in full:
@@ -193,6 +215,18 @@ def main() -> None:
         "stays": "2027-02-21~25 · 2027-07-18~22",
     }
     (BASE / "data_v4.json").write_text(json.dumps({"meta": meta, "resorts": out}, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    # 98곳 전부 img가 채워지고 실제 파일이 있는지 재검증
+    ok = 0
+    for x in out:
+        if x["img"] and (BASE / x["img"]).exists():
+            ok += 1
+        else:
+            print(f"[FAIL] 사진 미확인 id {x['id']} {x['ko']} → {x['img']}")
+    print(f"사진 {ok}/{len(out)}")
+    if ok != len(out):
+        raise SystemExit(f"[FAIL] 사진 {ok}/{len(out)}")
+
     print("OK data_v4.json", json.dumps(meta, ensure_ascii=False))
     print("누락:", [(x["id"], x["ko"]) for x in out if x["from"] is None])
 
